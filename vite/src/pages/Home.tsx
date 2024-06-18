@@ -4,17 +4,6 @@ import bias from "../images/어덕행덕_s.jpg";
 import slide_image from "../images/slide_images/a.gif";
 
 const Home: FC = () => {
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.nativeEvent.isComposing) {
-      event.preventDefault();
-    }
-  };
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = event.target.value.replace(/[^0-9a-zA-Z]/g, "");
-    event.target.value = newValue;
-  };
-
   return (
     <>
       <Flex
@@ -51,11 +40,7 @@ const Home: FC = () => {
             <Flex flexDir={"column"} justifyItems="end" alignItems={"end"}>
               화이트리스트 요청하기
               <Box>
-                <input
-                  maxLength={42}
-                  onKeyDown={handleKeyDown}
-                  onChange={handleChange}
-                />
+                <input maxLength={42} />
                 <button>등록</button>
               </Box>
             </Flex>
