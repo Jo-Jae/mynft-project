@@ -1,6 +1,6 @@
 import { Flex } from "@chakra-ui/react";
 import { FC } from "react";
-import bias_s from "../images/어덕행덕_s.jpg";
+import bias from "../images/어덕행덕_s.jpg";
 
 const Bias: FC = () => {
   return (
@@ -16,12 +16,12 @@ const Bias: FC = () => {
       >
         <Flex
           w="100%"
-          h="220px"
+          h="110px"
           justifyContent="center"
           // mb={[10, 10, 20]}
           backgroundColor="white"
         >
-          <img src={bias_s} alt="bias" />
+          <img src={bias} alt="bias" />
         </Flex>
         <Flex></Flex>
         <Flex>게시글</Flex>

@@ -83,7 +83,7 @@ const Header: FC<HeaderProps> = ({
           onClick={() => navigate("/bias")}
           size={["xs", "xs", "md"]}
         >
-          덕력
+          덕력 게시판
         </Button>
         <Button
           variant="link"

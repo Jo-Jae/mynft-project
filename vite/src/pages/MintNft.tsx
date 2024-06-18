@@ -4,6 +4,7 @@ import { useOutletContext } from "react-router-dom";
 import { OutletContext } from "../components/Layout";
 import axios from "axios";
 import MintModal from "../components/MintModal";
+import love from "../images/아이시떼루.jpeg";
 
 const MintNft: FC = () => {
   const [nftMetadata, setNftMetadata] = useState<NftMetadata>();
@@ -52,6 +53,7 @@ const MintNft: FC = () => {
         gap={2}
       >
         {!signer && <Text>🦊 메타마스크 로그인이 필요합니다!</Text>}
+        <img src={love} alt="love" />
         <Button
           onClick={onClickMint}
           isDisabled={!signer}
