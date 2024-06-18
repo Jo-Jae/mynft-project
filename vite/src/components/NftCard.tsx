@@ -75,7 +75,7 @@ const NftCard: FC<NftCardProps> = ({
   }, [saleContract, tokenId]);
 
   return (
-    <GridItem display="flex" flexDir="column" bgColor="red.100">
+    <GridItem display="flex" flexDir="column" bgColor="pink.100">
       <Image
         alignSelf="center"
         src={nftMetadata.image}
@@ -83,27 +83,42 @@ const NftCard: FC<NftCardProps> = ({
       />
       <Popover>
         <PopoverTrigger>
-          <Button mt={4} fontSize={24} fontWeight="semibold" variant="link">
+          <Button
+            mt={4}
+            fontSize={24}
+            fontWeight="semibold"
+            variant="link"
+            textColor="black"
+          >
             {nftMetadata.name}
           </Button>
         </PopoverTrigger>
         <PopoverContent>
           <PopoverArrow />
           <PopoverCloseButton />
-          <PopoverBody>{nftMetadata.description}</PopoverBody>
+          <PopoverBody fontSize={16} fontWeight="semibold">
+            {nftMetadata.description}
+          </PopoverBody>
         </PopoverContent>
       </Popover>
       <Flex flexWrap="wrap" mt={4} gap={2}>
         {nftMetadata.attributes?.map((w, j) => (
           <Box key={j} border="2px solid olive" p={1}>
             <Text borderBottom="2px solid olive">{w.trait_type}</Text>
-            <Text>{w.value}</Text>
+            <Text fontSize={16} fontWeight="semibold">
+              {w.value}
+            </Text>
           </Box>
         ))}
       </Flex>
-      <Flex mt={4}>
+      <Flex mt={4} fontSize={22} fontWeight="semibold" justifyContent="center">
         {currentPrice ? (
-          <Text>{formatEther(currentPrice)} ETH</Text>
+          <>
+            <Text>{formatEther(currentPrice)} ETH</Text>
+            <Button ml={4} mb={5} colorScheme="red">
+              판매중
+            </Button>
+          </>
         ) : isApprovedForAll ? (
           <>
             <InputGroup>
@@ -121,6 +136,7 @@ const NftCard: FC<NftCardProps> = ({
               isDisabled={isLoading}
               isLoading={isLoading}
               loadingText="로딩중"
+              colorScheme="blue"
             >
               등록
             </Button>

@@ -66,7 +66,7 @@ const Header: FC<HeaderProps> = ({
         fontWeight="semibold"
         alignItems="center"
       >
-        어.덕.행.덕.
+        ❤️어.덕.행.덕❤️
       </Flex>
       <Flex alignItems="center" gap={[2, 2, 4]}>
         <Button

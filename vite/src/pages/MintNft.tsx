@@ -56,6 +56,7 @@ const MintNft: FC = () => {
         <img src={love} alt="love" />
         <Button
           onClick={onClickMint}
+          colorScheme="purple"
           isDisabled={!signer}
           isLoading={isLoading}
           loadingText="로딩중"

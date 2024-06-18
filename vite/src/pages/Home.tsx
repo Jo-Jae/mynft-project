@@ -51,10 +51,15 @@ const Home: FC = () => {
         </Flex>
         <Flex></Flex>
         <Flex>덕력 게시판</Flex>
-        <Flex>미리보기</Flex>
-        <Flex>미리보기</Flex>
+        <Flex>게시글 미리보기</Flex>
+        <Flex>게시글 미리보기</Flex>
+        <br />
+        <br />
+        <Flex>ㅇㅇ뭐하지ㅇㅇ</Flex>
         <Flex>뭐하지</Flex>
-        <Flex>ㅇㅇㅇㅇ</Flex>
+        <Flex bgColor="black" w="100%" textColor="white">
+          Footer
+        </Flex>
       </Flex>
     </>
   );
