@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.26;
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
@@ -14,7 +14,7 @@ contract MintNft is ERC721Enumerable, Ownable {
     }
 
     function mintNft() public {
-        require(totalSupply() < 9, "No more mint.");
+        require(totalSupply() < 17, "No more mint.");
         require(whitelist[msg.sender] > 0, "Not whitelist");
 
         uint tokenId = totalSupply() + 1;
@@ -33,5 +33,6 @@ contract MintNft is ERC721Enumerable, Ownable {
     function setWhitelist(address _whitelist, uint _amount) public onlyOwner {
         whitelist[_whitelist] = _amount;
     }
+    
     
 }

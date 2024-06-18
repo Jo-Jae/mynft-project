@@ -5,6 +5,7 @@ import Layout from "./components/Layout";
 import MintNft from "./pages/MintNft";
 import MyNft from "./pages/MyNft";
 import SaleNft from "./pages/SaleNft";
+import Bias from "./pages/Bias";
 
 const App: FC = () => {
   return (
@@ -12,6 +13,7 @@ const App: FC = () => {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
+          <Route path="/bias" element={<Bias />} />
           <Route path="/mint-nft" element={<MintNft />} />
           <Route path="/my-nft" element={<MyNft />} />
           <Route path="/sale-nft" element={<SaleNft />} />

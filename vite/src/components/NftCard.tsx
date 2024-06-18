@@ -75,7 +75,7 @@ const NftCard: FC<NftCardProps> = ({
   }, [saleContract, tokenId]);
 
   return (
-    <GridItem display="flex" flexDir="column">
+    <GridItem display="flex" flexDir="column" bgColor="red.100">
       <Image
         alignSelf="center"
         src={nftMetadata.image}

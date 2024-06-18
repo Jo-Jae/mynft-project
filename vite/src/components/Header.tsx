@@ -80,6 +80,14 @@ const Header: FC<HeaderProps> = ({
         <Button
           variant="link"
           colorScheme="purple"
+          onClick={() => navigate("/bias")}
+          size={["xs", "xs", "md"]}
+        >
+          덕력
+        </Button>
+        <Button
+          variant="link"
+          colorScheme="purple"
           onClick={() => navigate("/mint-nft")}
           size={["xs", "xs", "md"]}
         >
