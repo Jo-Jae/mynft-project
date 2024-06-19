@@ -6,7 +6,7 @@ import axios from "axios";
 import { saleContractAddress } from "../abis/contractAddress";
 import NftCard from "../components/NftCard";
 
-const PAGE = 3;
+const PAGE = 4;
 
 const MyNft: FC = () => {
   const [nftMetadataArray, setNftMetadataArray] = useState<NftMetadata[]>([]);
@@ -143,7 +143,7 @@ const MyNft: FC = () => {
             templateColumns={[
               "repeat(1, 1fr)",
               "repeat(1, 1fr)",
-              "repeat(2, 1fr)",
+              "repeat(4, 1fr)",
             ]}
             gap={6}
           >

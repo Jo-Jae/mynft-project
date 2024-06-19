@@ -1,18 +1,37 @@
-import {
-  Box,
-  Button,
-  Flex,
-  Input,
-  InputGroup,
-  InputLeftAddon,
-} from "@chakra-ui/react";
-import { FC } from "react";
+import { Box, Button, Flex, Grid } from "@chakra-ui/react";
+import { FC, useEffect, useState } from "react";
 import bias from "../images/어덕행덕_s.jpg";
 import slide_image from "../images/slide_images/a.gif";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
+import { OutletContext } from "../components/Layout";
+import SaleNftCard from "../components/SaleNftCard";
 
 const Home: FC = () => {
   const navigate = useNavigate();
+  const [tokenIds, setTokenIds] = useState<number[]>([]);
+
+  const { signer, saleContract, mintContract } =
+    useOutletContext<OutletContext>();
+
+  const getOnSaleTokens = async () => {
+    try {
+      const response = await saleContract?.getOnSaleTokens();
+
+      const temp = response.map((v: any) => {
+        return Number(v);
+      });
+
+      setTokenIds(temp);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    if (!saleContract) return;
+
+    getOnSaleTokens();
+  }, [saleContract]);
 
   return (
     <>
@@ -37,16 +56,19 @@ const Home: FC = () => {
         </Flex>
 
         <Flex w="100%" bgColor="yellow.100" justifyContent="space-between">
-          <Flex flexDir={"column"}>
-            <Flex>NFT가 가지고 싶다면?</Flex>
+          <Flex flexDir={"column"} p={6}>
+            <Flex fontSize={20} fontWeight={"semibold"}>
+              NFT가 가지고 싶다면?
+            </Flex>
             <Flex>1. 로그인 하기</Flex>
-            <Flex>2. 화이트리스트 등록하기에 주소입력 후 등록 클릭</Flex>
-            <Flex>3. 등록이 완료되면 상단 민팅탭에 가서 민팅하기 클릭</Flex>
+            <Flex>2. 화이트리스트 등록하기 밑 'Go!'버튼 클릭</Flex>
+            <Flex>3. '화이트리스트 신청' 버튼 클릭</Flex>
             <Flex>4. NFT 민팅 성공!이 뜨면 완료 </Flex>
-            자세히 알아보기
           </Flex>
-          <Flex flexDir="column" m={4}>
-            <Flex>화이트리스트 등록하러 가기</Flex>
+          <Flex flexDir="column" m={4} p={3}>
+            <Flex fontSize={20} fontWeight={"semibold"}>
+              화이트리스트 등록하러 가기
+            </Flex>
 
             <Button m={2} onClick={() => navigate("/wl")}>
               Go!
@@ -56,22 +78,68 @@ const Home: FC = () => {
         <Flex>
           <img src={slide_image} alt="slide_images" />
         </Flex>
-        <Flex justifyContent="space-between">
-          <Flex flexDir={"column"}>
-            <Flex>덕력 게시판</Flex>
-            <Flex>게시글 미리보기</Flex>
-          </Flex>
-          <Flex flexDir={"column"}>
-            <Flex>이벤트</Flex>
-            <Flex>게시글 미리보기</Flex>
-          </Flex>
+        <Flex w="100%" bg="purple.100" p={6}>
+          <Box flexDir="column">
+            <Flex fontSize={22} fontWeight="semibold">
+              덕력 게시판
+            </Flex>
+            <Flex flexDir={"column"} alignItems="center">
+              <Button m={1} variant="link">
+                이거는 더 좋아
+              </Button>
+              <Button m={1} variant="link">
+                이거 좋아
+              </Button>
+            </Flex>
+          </Box>
         </Flex>
         <br />
         <br />
-        <Flex>ㅇㅇ뭐하지ㅇㅇ</Flex>
-        <Flex>뭐하지</Flex>
-        <Flex bgColor="black" w="100%" textColor="white">
-          Footer
+        <Flex w="100%" p={6} flexDir="column" bg="purple.100">
+          <Flex fontSize={22} fontWeight="semibold">
+            마켓 미리보기
+          </Flex>
+
+          <Flex>
+            <Grid templateColumns={["repeat(4, 1fr)"]} gap={6}>
+              {tokenIds.map((v, i) => (
+                <SaleNftCard
+                  key={i}
+                  tokenId={v}
+                  mintContract={mintContract}
+                  saleContract={saleContract}
+                  signer={signer}
+                  tokenIds={tokenIds}
+                  setTokenIds={setTokenIds}
+                />
+              ))}
+            </Grid>
+            {/* {!isEnd && (
+            <Button
+              mt={8}
+              onClick={() => getNftMetadata()}
+              isDisabled={isLoading}
+              isLoading={isLoading}
+              loadingText="로딩중"
+            >
+              더 보기
+            </Button>
+          )} */}
+          </Flex>
+        </Flex>
+        <Flex
+          bgColor="black"
+          w="100%"
+          textColor="white"
+          p={6}
+          flexDir={"column"}
+        >
+          <Flex fontSize={20} fontWeight={"bold"}>
+            PROJECT.STAN.
+          </Flex>
+          <Flex>Help : Undefined</Flex>
+          <Flex>Service : Null</Flex>
+          <Flex>Offer : false</Flex>
         </Flex>
       </Flex>
     </>
