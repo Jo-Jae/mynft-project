@@ -9,11 +9,10 @@ import {
 import { FC } from "react";
 import bias from "../images/어덕행덕_s.jpg";
 import slide_image from "../images/slide_images/a.gif";
+import { useNavigate } from "react-router-dom";
 
 const Home: FC = () => {
-  const onClickSetWhiteList = () => {
-    ("");
-  };
+  const navigate = useNavigate();
 
   return (
     <>
@@ -39,27 +38,19 @@ const Home: FC = () => {
 
         <Flex w="100%" bgColor="yellow.100" justifyContent="space-between">
           <Flex flexDir={"column"}>
-            <Flex>
-              NFT가 가지고 싶다면?<span>준비사항(모달)</span>
-            </Flex>
+            <Flex>NFT가 가지고 싶다면?</Flex>
             <Flex>1. 로그인 하기</Flex>
             <Flex>2. 화이트리스트 등록하기에 주소입력 후 등록 클릭</Flex>
             <Flex>3. 등록이 완료되면 상단 민팅탭에 가서 민팅하기 클릭</Flex>
             <Flex>4. NFT 민팅 성공!이 뜨면 완료 </Flex>
             자세히 알아보기
           </Flex>
-          {/* <WhiteList /> */}
-          <Flex flexDir="column">
-            <Flex>화이트리스트 등록하기</Flex>
-            <Flex>
-              <InputGroup>
-                <InputLeftAddon>지갑주소</InputLeftAddon>
-                <Input />
-              </InputGroup>
-              <Button ml={2} onClick={onClickSetWhiteList}>
-                등록
-              </Button>
-            </Flex>
+          <Flex flexDir="column" m={4}>
+            <Flex>화이트리스트 등록하러 가기</Flex>
+
+            <Button m={2} onClick={() => navigate("/wl")}>
+              Go!
+            </Button>
           </Flex>
         </Flex>
         <Flex>
