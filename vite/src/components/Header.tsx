@@ -66,7 +66,7 @@ const Header: FC<HeaderProps> = ({
         fontWeight="semibold"
         alignItems="center"
       >
-        ❤️어.덕.행.덕❤️
+        어.덕.행.덕❤️
       </Flex>
       <Flex alignItems="center" gap={[2, 2, 4]}>
         <Button
@@ -85,6 +85,15 @@ const Header: FC<HeaderProps> = ({
         >
           덕력 게시판
         </Button>
+        <Button
+          variant="link"
+          colorScheme="purple"
+          onClick={() => navigate("/wl")}
+          size={["xs", "xs", "md"]}
+        >
+          화리
+        </Button>
+
         <Button
           variant="link"
           colorScheme="purple"
