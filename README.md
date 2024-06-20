@@ -1,30 +1,18 @@
-# React + TypeScript + Vite
+배운 것을 토대로 진행하였지만 미숙한게 많습니다
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+수업을 듣다보면 업데이트할 수 있는 것들이 많아 보입니다
 
-Currently, two official plugins are available:
+게시판 같은 기능을 혼자서 넣어보려 했지만 능력이 미치지 못했고 앞으로 게시판 같은 기능을 배우게 되면 퀄리티가 좋아지지 않을까 싶습니다
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<프로젝트 설명>
+팬덤들을 위한 프로젝트입니다. 우선은 만화캐릭터들로 지정을 했지만 연예인이나 운동선수 좋아하는 장르에 어떠한 것들로 대체할 수 있을 것 같아서 이렇게 시작하게 되었습니다
 
-## Expanding the ESLint configuration
+넣어야 할 기능들과 넣고 싶은 기능들
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. 민팅 가능 여부 표시
+2. 리스팅 수 표시
+3. 게시판
+4. 로그인 후 개인프로필 이미지 기능
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+부족하지만 천천히 해나가는 중입니다
+읽어주셔서 감사합니다
