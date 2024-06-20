@@ -24,8 +24,12 @@ const Bias: FC = () => {
           <img src={bias} alt="bias" />
         </Flex>
         <Flex></Flex>
-        <Flex>게시글</Flex>
-        <Flex>게시글</Flex>;
+        <Flex fontSize={45} fontWeight={"bold"}>
+          -게시판 공사중-
+        </Flex>
+        <Flex fontSize={27} fontWeight={"bold"}>
+          완공일자 : 3205년 4월 1일
+        </Flex>
       </Flex>
     </>
   );

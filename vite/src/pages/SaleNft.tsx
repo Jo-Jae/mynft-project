@@ -33,26 +33,28 @@ const SaleNft: FC = () => {
   return (
     <Flex w="100%" alignItems="center" flexDir="column" gap={2} mt={8} mb={20}>
       {signer ? (
-        <Grid
-          templateColumns={[
-            "repeat(1, 1fr)",
-            "repeat(1, 1fr)",
-            "repeat(2, 1fr)",
-          ]}
-          gap={6}
-        >
-          {tokenIds.map((v, i) => (
-            <SaleNftCard
-              key={i}
-              tokenId={v}
-              mintContract={mintContract}
-              saleContract={saleContract}
-              signer={signer}
-              tokenIds={tokenIds}
-              setTokenIds={setTokenIds}
-            />
-          ))}
-        </Grid>
+        <>
+          <Grid
+            templateColumns={[
+              "repeat(1, 1fr)",
+              "repeat(1, 1fr)",
+              "repeat(4, 1fr)",
+            ]}
+            gap={6}
+          >
+            {tokenIds.map((v, i) => (
+              <SaleNftCard
+                key={i}
+                tokenId={v}
+                mintContract={mintContract}
+                saleContract={saleContract}
+                signer={signer}
+                tokenIds={tokenIds}
+                setTokenIds={setTokenIds}
+              />
+            ))}
+          </Grid>{" "}
+        </>
       ) : (
         <Text>🦊 메타마스크 로그인이 필요합니다!</Text>
       )}

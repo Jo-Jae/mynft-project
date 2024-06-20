@@ -4,7 +4,8 @@ import bias from "../images/어덕행덕_s.jpg";
 import slide_image from "../images/slide_images/a.gif";
 import { useNavigate, useOutletContext } from "react-router-dom";
 import { OutletContext } from "../components/Layout";
-import SaleNftCard from "../components/SaleNftCard";
+import SaleNftCard2 from "../components/SaleNftCard2";
+import { CheckIcon } from "@chakra-ui/icons";
 
 const Home: FC = () => {
   const navigate = useNavigate();
@@ -44,14 +45,7 @@ const Home: FC = () => {
         mt={8}
         mb={20}
       >
-        <Flex
-          // w="20%"
-          h="110px"
-          justifyContent="center"
-          // mb={[10, 10, 20]}
-
-          backgroundColor="white"
-        >
+        <Flex h="110px" justifyContent="center" backgroundColor="white">
           <img src={bias} alt="bias" />
         </Flex>
 
@@ -81,6 +75,7 @@ const Home: FC = () => {
         <Flex w="100%" bg="purple.100" p={6}>
           <Box flexDir="column">
             <Flex fontSize={22} fontWeight="semibold">
+              <CheckIcon />
               덕력 게시판
             </Flex>
             <Flex flexDir={"column"} alignItems="center">
@@ -96,35 +91,37 @@ const Home: FC = () => {
         <br />
         <br />
         <Flex w="100%" p={6} flexDir="column" bg="purple.100">
-          <Flex fontSize={22} fontWeight="semibold">
-            마켓 미리보기
+          <Flex gap={2}>
+            <Flex fontSize={22} fontWeight="semibold">
+              <CheckIcon />
+              판매중인 NFT
+            </Flex>
+            <Button
+              w="fit-content"
+              variant="ghost"
+              onClick={() => navigate("/sale-nft")}
+            >
+              더보기
+            </Button>
           </Flex>
-
           <Flex>
             <Grid templateColumns={["repeat(4, 1fr)"]} gap={6}>
-              {tokenIds.map((v, i) => (
-                <SaleNftCard
-                  key={i}
-                  tokenId={v}
-                  mintContract={mintContract}
-                  saleContract={saleContract}
-                  signer={signer}
-                  tokenIds={tokenIds}
-                  setTokenIds={setTokenIds}
-                />
-              ))}
+              {tokenIds.map((v, i) => {
+                if (i < 4) {
+                  return (
+                    <SaleNftCard2
+                      key={i}
+                      tokenId={v}
+                      mintContract={mintContract}
+                      saleContract={saleContract}
+                      signer={signer}
+                      tokenIds={tokenIds}
+                      setTokenIds={setTokenIds}
+                    />
+                  );
+                }
+              })}
             </Grid>
-            {/* {!isEnd && (
-            <Button
-              mt={8}
-              onClick={() => getNftMetadata()}
-              isDisabled={isLoading}
-              isLoading={isLoading}
-              loadingText="로딩중"
-            >
-              더 보기
-            </Button>
-          )} */}
           </Flex>
         </Flex>
         <Flex

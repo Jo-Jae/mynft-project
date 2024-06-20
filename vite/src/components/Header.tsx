@@ -102,14 +102,14 @@ const Header: FC<HeaderProps> = ({
         >
           민팅
         </Button>
-        <Button
+        {/* <Button
           variant="link"
           colorScheme="purple"
           onClick={() => navigate("/my-nft")}
           size={["xs", "xs", "md"]}
         >
           내 NFT
-        </Button>
+        </Button> */}
         <Button
           variant="link"
           colorScheme="purple"
@@ -127,6 +127,12 @@ const Header: FC<HeaderProps> = ({
               {signer.address.substring(signer.address.length - 5)}
             </MenuButton>
             <MenuList minW={[20, 20, 40]}>
+              <MenuItem
+                fontSize={[8, 8, 12]}
+                onClick={() => navigate("/my-nft")}
+              >
+                내 NFT
+              </MenuItem>
               <MenuItem fontSize={[8, 8, 12]} onClick={() => setSigner(null)}>
                 로그아웃
               </MenuItem>
